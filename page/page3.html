@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>组/用户管理面板</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+</head>
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<a href="page1.html" data-role="button" data-icon="back">返回</a>
+		<h1>组/用户管理面板</h1>
+		<div data-role="navbar">
+     		<ul>
+        		<li data-mini="true"><a href="page3.html" class="ui-btn-active ui-state-persist" >组管理</a></li>
+        		<li data-mini="true"><a href="#user_manage.html" >用户管理</a></li>
+        	
+  			</ul>
+	 	</div>
+	 	<div data-role="navbar">
+     		<ul>
+        		<li data-mini="true"><a href="#group_list" class="ui-btn-active ui-state-persist">组列表</a></li>
+        		<li data-mini="true"><a href="#add_group">添加组</a></li>
+  			</ul>
+	 	</div>
+	</div>
+
+	<div data-role="content" id="main_view">
+		<form method="post" action="demoform.asp">
+			<div data-role="fieldcontain">
+				
+				<label for="fullname">所有名：</label>
+				<input type="text" name="fullname" id="fullname" placeholder="请输入您的所有者">
+
+				<label for="parent_group">父组：</label>
+				<input type="date" name="parent_group" id="parent_group">
+
+				<label for="email">组ID</label>
+				<input type="email" name="email" id="email">
+				
+				<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend>是否公开</legend>
+					<label for="male">公开</label>
+					<input type="radio" name="gender" id="male" value="male">
+					<label for="female">不公开</label>
+					<input type="radio" name="gender" id="female" value="female">	
+				</fieldset>
+
+				<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend>请选择您喜爱的颜色：</legend>
+					<label for="red">红色</label>
+					<input type="checkbox" name="favcolor" id="red" value="red">
+					<label for="green">绿色</label>
+					<input type="checkbox" name="favcolor" id="green" value="green">
+					<label for="blue">蓝色</label>
+					<input type="checkbox" name="favcolor" id="blue" value="blue">	
+				</fieldset>
+				
+				<fieldset data-role="fieldcontain">
+				<label for="day">选择日期</label>
+					<select name="day" id="day">
+						<option value="mon">星期一</option>
+						<option value="tue">星期二</option>
+						<option value="wed">星期三</option>
+					</select>
+				</fieldset>
+			</div>
+
+				<input type="submit" data-inline="true" value="提交">
+				
+
+		</form>
+	</div>
+
+</div>
+</body>
+</html>

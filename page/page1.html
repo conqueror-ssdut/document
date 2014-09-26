@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JES2管理面板</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+</head>
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>JES2管理面板</h1>
+		<div data-role="navbar">
+     		<ul>
+        		<li data-mini="true"><a href="#" class="ui-btn-active ui-state-persist" data-icon="home">J2E2概览</a></li>
+        		<li data-mini="true"><a href="page3.html" data-icon="arrow-r">作业列表</a></li>
+        		<li data-mini="true"><a href="#pagetwo" data-icon="arrow-r">修改SPOOL盘卷</a></li>
+        		<li data-mini="true"><a href="#pagetwo" data-icon="arrow-r">修改CHECK POINT</a></li>
+  			</ul>
+	 	</div>
+	</div>
+
+	<div data-role="content" id="main_view">
+		<ol data-role="listview" data-filter="true" data-filter-placeholder="搜索作业">
+	      <li><a href="page2.html" data-transition="slide">IBMUSER</a></li>
+	      <li><a href="#">TCPIP</a></li>
+	      <li><a href="#">VTAM</a></li>
+	    </ol>
+	</div>
+
+</div>
+</body>
+</html>
