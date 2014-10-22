@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JES2管理面板</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.4.min.js"></script>
+	<script>
+
+		$(document).on('pageinit', '#page1', function () {
+		    $('.myflilswitch').width('22%');
+		});
+	</script>
+	<style>
+		div.ui-slider{width:80%;}
+		.myflilswitch{
+			margin: 0em 0em 0em 0 !important;
+/*			min-width: 20% !important;
+    		white-space: normal !important;*/
+		}
+	</style>
+</head>
+<body>
+<div data-role="page" id="page1">
+
+	<div data-role="header">
+		<a href="#leftpanel1" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow"></a>
+		<h1>子系统管理</h1>
+
+	</div>
+
+	<div data-role="content" id="main_view">
+		<ul data-role="listview" >
+			<li>
+				<img src="pic/database.png" alt="DB2"><h2>DB2</h2>
+
+				<div class="ui-li-aside myflilswitch">
+					<input type="checkbox" data-role="flipswitch" name="switch" id="switch" checked>
+                </div>
+
+			</li>
+	      <li>
+				<img src="pic/CICS.jpg" alt="CICS"><h2>CICS</h2>
+
+				<div class="myflilswitch ui-li-aside">
+					<input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+                </div>
+	      </li>	      
+	    </ul>
+	</div>
+	<div data-role="panel" id="leftpanel1" data-position="left" data-display="overlay" data-theme='b'>
+
+       
+        <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li><a href="#"><img src="pic/user.png" ><h2>IBMUSER</h2><p>管理员用户</p></a></li> 
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">作业管理</li> -->
+      		<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">作业管理</a></li>
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">用户管理</li> -->
+      		<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">用户管理</a></li>
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">子系统管理</li> -->
+      		<li class="ui-last-child"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">子系统管理</a></li>
+
+      		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">RMF资源监控</li>
+      		<li class="ui-last-child"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">CPU Activity</a></li>
+      		<li class="ui-last-child"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">DASD</a></li>
+   		</ul>
+	        <a href="#page" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">隐藏面板</a>
+
+	</div><!-- /leftpanel1 -->
+</div>
+
+
+</body>
+</html>

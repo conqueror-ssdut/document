@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>JES2管理面板</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+   <link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.4.min.js"></script>
 
     <script>
 		// Pagecreate will fire for each of the pages in this demo
@@ -130,13 +130,35 @@
     </style>
 </head>
 <body>
-    <div data-role="page" id="city" class="demo-page" data-dom-cache="true" data-theme="b" data-prev="prevCity" data-next="nextCity" data-url="city">
-    <div role="main" class="ui-content">
-        <div id="trivia-city" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
-            <a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
-            <p>Here some text.</p>
-        </div><!-- /popup -->
-    </div><!-- /content -->
+
+
+
+<div id="header" data-role="header" data-id="header" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    <h1>New York</h1>
+    <a href="./" data-ajax="false" data-direction="reverse" data-icon="delete" data-iconpos="notext" data-shadow="false" data-icon-shadow="false">Back</a>
+</div><!-- /header -->
+
+<div data-role="page" id="newyork" class="demo-page" data-title="New York" data-dom-cache="true" data-theme="b" data-next="buenosaires">
+
+	<div role="main" class="ui-content">
+
+		<div id="trivia-newyork" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
+        	<a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
+			<p>Although many legends exist about the origin of New York City's nickname, the Big Apple, most historians agree that it can be traced back to a writer who covered horse racing in the 1920s. In The Morning Telegraph, he wrote that stable hands often referred to New York as the Big Apple, meaning that any thoroughbred that raced in New York had reached the pinnacle of racing. <small>source:&nbsp;nylady.hubpages.com</small></p>
+        </div>
+
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+    <div id="footer" data-id="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+		<div data-role="controlgroup" class="control ui-btn-left" data-type="horizontal" data-mini="true">
+        	<a href="#" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l">Previous</a>
+        	<a href="#" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r">Next</a>
+        </div>
+
+		<a href="#trivia-newyork" id="trivia-button" data-rel="popup" class="trivia-btn ui-btn ui-btn-right ui-btn-icon-left ui-icon-info ui-mini ui-corner-all">Trivia</a>
+    </div><!-- /footer -->
 </div>
 </body>
 </html>

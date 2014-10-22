@@ -5,14 +5,15 @@
 	<meta charset="UTF-8">
 	<title>JES2管理面板</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.4.min.js"></script>
 </head>
 <body>
 <div data-role="page">
 
 	<div data-role="header">
+		<a href="#leftpanel1" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow"></a>
 		<h1>JES2管理面板</h1>
 		<div data-role="navbar">
      		<ul>
@@ -31,7 +32,23 @@
 	      <li><a href="#">VTAM</a></li>
 	    </ol>
 	</div>
+	<div data-role="panel" id="leftpanel1" data-position="left" data-display="overlay" data-theme='b'>
 
+        <h2>IBMUSER</h2>
+        <ul data-role="listview" data-autodividers="true" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+      		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">A</li>
+      		<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Adele</a></li>
+     		 <li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Agnes</a></li>
+      		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">B</li>
+      		<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Billy</a></li>
+      		<li><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Bob</a></li>
+      		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">C</li><li class="ui-last-child"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Calvin</a></li>
+   		</ul>
+	        <a href="#page" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+
+	</div><!-- /leftpanel1 -->
 </div>
+
+
 </body>
 </html>

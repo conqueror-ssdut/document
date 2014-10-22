@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>RMF数据监控</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.4.min.js"></script>
+	<script src="http://code.highcharts.com/stock/highstock.js"></script>
+	<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+
+	<script>
+		//图表属性，不包含数据
+		var options = {
+			chart: {
+				renderTo:'container',
+				type:'line',
+			},
+			title: {
+          text: 'LPARBUSY',
+          x: -20 //center
+      },
+      
+      xAxis:{
+      	 gridLineWidth: 1,
+      	 labels: {
+      	 	// overflow: 'justify'
+            enabled: false
+         }
+
+
+      },
+      yAxis: {
+          title: {
+              text: 'BUSY(%)'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }],
+       labels: {
+            formatter: function () {
+                return this.value + '%';
+            }
+        }
+      },
+      series: [{
+        	name:'使用情况',
+        	id: 'dataseries'
+      }
+   //    ,{
+			// type: 'flags',
+			// data: [{
+			// 	x: "2014-10-15 4:30:00",
+			// 	title: 'WARNING',
+			// 	text: '系统的占用较高，在当前情况下，您的请求可能无法及时响应'
+			// }, {
+			// 	x: "2014-10-15 6:30:00",
+			// 	title: 'WARNING',
+			// 	text: '系统的占用较高，在当前情况下，您的请求可能无法及时响应'
+			// }],
+			// onSeries: 'dataseries',
+			// shape: 'circlepin',
+			// width: 16
+   //    }
+      ],
+      tooltip: {
+          valueSuffix: '%'
+      },
+      
+      plotOptions: {
+			    line:{
+			    	dataLabels: {
+		           enabled: true
+		        },
+		        animation:false,
+		      },
+			},
+   };
+   
+   //初始函数，设置定时器，定时取数据
+		$(function () {
+	    queryData(0);
+	   
+	   	var i=0;
+	    var timer = setInterval(function(){
+	    	i++;
+	    	if(i>=3) {i=0;}
+	    	queryData(i);
+	    },3000);
+	    
+	    //停止刷新
+	    $("button").click(function(){
+	    	clearInterval(timer);
+	    });
+		});
+		
+		var categories = [];
+		var datas = [];
+		
+		//Ajax 获取数据并解析创建Highcharts图表
+		function queryData(index) {
+			$.ajax({
+				url:'getDatas.php?index='+index,
+				type:'get',
+				dataType:"json",
+				success:function(data) {
+						
+						$.each(data,function(i,n){
+							categories[i] = n[1];
+							datas[i] = n[2]*1;
+						});
+						
+						options.xAxis.categories = categories;
+						options.series[0].data = datas;
+						
+						chart = new Highcharts.Chart(options);
+		 		}
+			});
+		}
+	</script>
+</head>
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>RMF数据监控</h1>
+		<div data-role="navbar">
+     		<ul>
+        		<li data-mini="true"><a href="#" class="ui-btn-active ui-state-persist" data-icon="home">CPU Activity</a></li>
+        		<li data-mini="true"><a href="page3.html" data-icon="arrow-r">DASD</a></li>
+  			</ul>
+	 	</div>
+	</div>
+
+	<div data-role="content" id="main_view">
+			<!-- <div id="container" style="min-width:800px;height:400px;"></div> -->
+			<div id="container" style=""></div>
+	</div>
+
+</div>
+</body>
+</html>

@@ -5,20 +5,35 @@
 	<meta charset="UTF-8">
 	<title>JES2管理面板-IBMUSER</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.4.min.js"></script>
+	<script type="text/javascript">
+
+
+
+	$( document ).on( "pagecreate", "#demo-page1", function() {
+
+		$("#options_button").on("click", function() {
+			
+		});
+
+
+	});
+
+	</script>
 </head>
 <body>
 
-	<div data-role="page">
+	<div data-role="page" id = "demo-page1">
 
 		<div data-role="header">
-			<a href="page1.html" data-role="button" data-icon="back">返回</a>
-			<h1>IBMUSER</h1>
+			<a href="page1.html" data-role="button" data-icon="back" data-mini="true">返回</a>
+			<h5>IBM</h5>
+			<a href="#page2" id="options_button" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
 		</div>
 		<div data-role="content">
-			<table data-role="table" data-mode="columntoggle" class="ui-responsive" border="1px solid black">
+			<!-- <table data-role="table" data-mode="columntoggle" class="ui-responsive" border="1px solid black">
 	     		<thead>
 	        		<tr>
 			          <th>JOBNAME</th>
@@ -48,7 +63,7 @@
 	   		</table>
 
 			&nbsp;<br />
-
+ -->
 		    <table data-role="table" class="ui-responsive" border="1px solid black">
 				<thead>
 					<tr>
@@ -79,11 +94,34 @@
 			</table>
 		</div>
 		<div data-role="footer" data-position="fixed" data-fullscreen="true">
-			<a href="#" data-role="button" data-icon="plus">转播到新浪微博</a>
-			<a href="#" data-role="button" data-icon="plus">转播到腾讯微博</a>
-			<a href="#" data-role="button" data-icon="plus">转播到 QQ 空间</a>
+			 <div data-role="navbar">
+			    <ul>
+			      <li><a href="#">操作P</a></li>
+			      <li><a href="#">操作S</a></li>
+			      <li><a href="#">操作?</a></li>
+			    </ul>
+			    <br />
+			  </div>
+
 		</div>
 	</div>
 
+
+    <div style="display: none;" id="confirm-placeholder"><!-- placeholder for confirm --></div><!-- /popup -->
+	<div class="ui-popup-screen ui-overlay-inherit ui-screen-hidden" id="confirm-screen"></div>
+	<div class="ui-popup-container ui-popup-hidden ui-popup-truncate" id="confirm-popup">
+		<div id="confirm" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" >
+       		<p id="question">Are you sure you want to delete:</p><p class="topic"><strong>4-for-3 Books for Kids</strong></p>
+	        <div class="ui-grid-a">
+	            <div class="ui-block-a">
+	                <a id="yes" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">Yes</a>
+	            </div>
+	            <div class="ui-block-b">
+	                <a id="cancel" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">Cancel</a>
+	            </div>
+	        </div>
+    	</div>
+    </div>
 </body>
 </html>
+

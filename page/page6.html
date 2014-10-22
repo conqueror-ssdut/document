@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="lib/jquery.mobile-1.4.4.min.css">
+  <script src="lib/jquery-1.11.1.min.js"></script>
+  <script src="lib/jquery.mobile-1.4.4.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>欢迎访问我的主页</h1>
+  </div>
+
+  <div data-role="content">
+    <p>欢迎！</p>
+    <a href="#pagetwo" data-rel="dialog">转到页面二</a>
+  </div>
+
+  <div data-role="footer">
+  <h1>页脚文本</h1>
+  </div>
+</div> 
+
+    <div data-role="page" id="pagetwo">
+        <div data-role="header">
+            <h1>控制面板</h1>
+        </div>
+
+        <div data-role="content">
+            <p>请问您将如何处理？</p>
+            <form>
+                <input type="button" data-inline="true" value="Input">
+                <input type="button" data-inline="true" value="Enhanced">
+            </form>
+        </div>
+
+    </div> 
+
+
+</body>
+</html>
+

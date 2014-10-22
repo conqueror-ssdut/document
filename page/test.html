@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+	<script src="http://code.highcharts.com/stock/highstock.js"></script>
+	<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+	<script>
+		//图表属性，不包含数据
+		var options = {
+			chart: {
+				renderTo:'container',
+				type:'line',
+			},
+			title: {
+          text: 'LPARBUSY',
+          x: -20 //center
+      },
+      
+      xAxis:{
+      	 gridLineWidth: 1,
+      	 labels: {
+      	 	// overflow: 'justify'
+            enabled: false
+         }
+
+
+      },
+      yAxis: {
+          title: {
+              text: 'BUSY(%)'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      series: [{
+        	name:'使用情况',
+        	id: 'dataseries'
+      }
+   //    ,{
+			// type: 'flags',
+			// data: [{
+			// 	x: "2014-10-15 4:30:00",
+			// 	title: 'WARNING',
+			// 	text: '系统的占用较高，在当前情况下，您的请求可能无法及时响应'
+			// }, {
+			// 	x: "2014-10-15 6:30:00",
+			// 	title: 'WARNING',
+			// 	text: '系统的占用较高，在当前情况下，您的请求可能无法及时响应'
+			// }],
+			// onSeries: 'dataseries',
+			// shape: 'circlepin',
+			// width: 16
+   //    }
+      ],
+      tooltip: {
+          valueSuffix: '%'
+      },
+      
+      plotOptions: {
+			    line:{
+			    	dataLabels: {
+		           enabled: true
+		        },
+		        animation:false,
+		      },
+			},
+   };
+   
+   //初始函数，设置定时器，定时取数据
+		$(function () {
+	    queryData(0);
+	   
+	   	var i=0;
+	    var timer = setInterval(function(){
+	    	i++;
+	    	if(i>=3) {i=0;}
+	    	queryData(i);
+	    },3000);
+	    
+	    //停止刷新
+	    $("button").click(function(){
+	    	clearInterval(timer);
+	    });
+		});
+		
+		var categories = [];
+		var datas = [];
+		
+		//Ajax 获取数据并解析创建Highcharts图表
+		function queryData(index) {
+			$.ajax({
+				url:'getDatas.php?index='+index,
+				type:'get',
+				dataType:"json",
+				success:function(data) {
+						
+						$.each(data,function(i,n){
+							categories[i] = n[1];
+							datas[i] = n[2]*1;
+						});
+						
+						options.xAxis.categories = categories;
+						options.series[0].data = datas;
+						
+						chart = new Highcharts.Chart(options);
+		 		}
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div id="container" style="min-width:800px;height:400px;"></div>
+	<p align=center><button>停止刷新</button></p>
+
+</body>
+
+</html>
