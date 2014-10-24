@@ -21,24 +21,64 @@
 	<div data-role="header">
 		<a href="#leftpanel1" class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow"></a>
 		<h1>JES2管理面板</h1>
-		<div data-role="navbar">
-     		<ul>
-        		<li data-mini="true"><a href="#" class="ui-btn-active ui-state-persist" data-icon="home">J2E2概览</a></li>
-        		<li data-mini="true"><a href="page3.html" data-icon="arrow-r">作业列表</a></li>
-        		<li data-mini="true"><a href="#pagetwo" data-icon="arrow-r">修改SPOOL盘卷</a></li>
-        		<li data-mini="true"><a href="#pagetwo" data-icon="arrow-r">修改CHECK POINT</a></li>
-  			</ul>
-	 	</div>
+
 	</div>
 
 	<div data-role="content" id="main_view">
-		<ol data-role="listview" data-filter="true" data-filter-placeholder="搜索作业">
-	      <li><a href="page2.html" data-transition="slide">IBMUSER</a></li>
-	      <li><a href="#">TCPIP</a></li>
-	      <li><a href="#">VTAM</a></li>
+		<ol data-role="listview" data-filter="true" data-filter-placeholder="搜索作业" data-icon="check">
+
+
+
+	      <li data-theme='b'><a href="task_detail.html">IBMUSERA-JOB3461</a><span class="ui-li-count">EXECUTION</span></li>
+	      <li data-theme='b'><a href="#">IBMUSERA-JOB3462</a><span class="ui-li-count">EXECUTION</span></li>
+	      <li ><a href="#">IBMUSERA-JOB3463</a></li>
+	      <li ><a href="#">IBMUSERA-JOB3464</a></li>
+	      <li ><a href="#">RUNREXX-JOB3465</a></li>
+	      <li ><a href="#">RUNREXX-JOB3466</a></li>
+	      <li ><a href="#">RUNREXX-JOB3469</a></li>
+	      <li ><a href="#">RUNREXX-JOB3471</a></li>
+	      <li ><a href="#">RUNREXX-JOB3472</a></li>
+	      <li ><a href="#">RUNREXX-JOB3473</a></li>
+	      <li ><a href="#">RUNREXX-JOB3474</a></li>
+
 	    </ol>
 	</div>
+<div data-role="panel" id="leftpanel1" data-position="left" data-display="overlay" data-theme='b'>
 
+       
+        <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+<!-- 			<li>
+			<a href="#"> <img src="pic/user.png" >
+				<div data-inline = "true"><h2>IBMUSER</h2><p>管理员用户</p></div></a>
+
+			
+			</li>  -->
+			<li ><a href="#" class="ui-btn " >
+				<img src="pic/user.png" />
+				<div ><h2>IBMUSER</h2><p>管理员用户</p></div>
+				</a>
+
+			</li>
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">作业管理</li> -->
+      		<li><a href="task_manage.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r">作业管理</a></li>
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">用户管理</li> -->
+      		<li><a href="user_panel.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r">用户管理</a></li>
+
+
+      		<!-- <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">子系统管理</li> -->
+      		<li class="ui-last-child"><a href="sub_system_manage.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r">子系统管理</a></li>
+
+      		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">RMF资源监控</li>
+      		<li class="ui-last-child"><a href="RMFManage.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r">CPU Activity</a></li>
+      		<li class="ui-last-child"><a href="RMFManage.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r">DASD</a></li>
+   		</ul>
+	        <a href="#page" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">隐藏面板</a>
+
+	</div><!-- /leftpanel1 -->
 
 
 </body>
